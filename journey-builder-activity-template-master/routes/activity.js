@@ -89,9 +89,9 @@ exports.execute = function (req, res) {
 			console.log("ARGUMENT -> " + util.inspect(decoded.inArguments[0]));
             console.log ('SIZE -> ' + jsonSize(decoded.inArguments[0]));
             var endpoint = decoded.inArguments[0].Endpoint;
-            var host;
+            var host;   
             
-            for (var i = 4; i < endpoint.length(); i++) {
+            for (var i = 4; i < endpoint.length; i++) {
                 if (endpoint.substring(i, i+1) == '.'){
                     host = endpoint.substring(4, i+1);
                     break;
