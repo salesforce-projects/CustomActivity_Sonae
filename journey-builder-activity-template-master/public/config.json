@@ -18,7 +18,7 @@
         "execute": {
            "inArguments":[],
           "outArguments": [], 
-          "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/execute",
+          "url": "https://custom-activity-sonae.herokuapp.com/journeybuilder/execute",
 			"verb": "POST",
 			"body": "",
 			"header": "",
@@ -33,22 +33,22 @@
 		"activity": "0"
 	  },
       "save": {
-        "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/save",
+        "url": "https://custom-activity-sonae.herokuapp.com/journeybuilder/save",
           "verb": "POST",
         "useJwt": true 
        },
        "publish": {
-        "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/publish",
+        "url": "https://custom-activity-sonae.herokuapp.com/journeybuilder/publish",
            "verb": "POST",
         "useJwt": true
        },
       "stop": {
-        "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/stop",
+        "url": "https://custom-activity-sonae.herokuapp.com/journeybuilder/stop",
            "verb": "POST",
         "useJwt": true
       },
       "validate": {
-        "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/validate",
+        "url": "https://custom-activity-sonae.herokuapp.com/journeybuilder/validate",
         "verb": "POST",
         "useJwt": true
       }

@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/devsutd/journey-builder-activity-template.git"
+    "url": "git+https://github.com/RicardoMartinsDev/CustomActivity_Sonae.git"
   },
   "keywords": [
     "journey",
@@ -21,9 +21,9 @@
   "author": "Devs United",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/devsutd/journey-builder-activity-template/issues"
+    "url": "https://github.com/RicardoMartinsDev/CustomActivity_Sonae/issues"
   },
-  "homepage": "https://github.com/devsutd/journey-builder-activity-template#readme",
+  "homepage": "https://github.com/RicardoMartinsDev/CustomActivity_Sonae#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
     "bower": "^1.8.0",
