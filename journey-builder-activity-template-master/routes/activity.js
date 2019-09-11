@@ -90,15 +90,18 @@ exports.execute = function (req, res) {
             console.log ('SIZE -> ' + jsonSize(decoded.inArguments[0]));
             var endpoint = decoded.inArguments[0].Endpoint;
             var host;   
-            
+            var indexPath;
             for (var i = 4; i < endpoint.length; i++) {
-                if (endpoint.substring(i, i+1) == '.'){
+                if (endpoint.substring(i, i+1) == '/'){
                     host = endpoint.substring(4, i);
+                    indexPath = i;
                     break;
                 }
              }
+             path = endpoint.substring(indexPath, endpoint.length);
 
              console.log('HOST HERE -> ' + host);
+             console.log('PATH HERE -> ' + path);
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
             
