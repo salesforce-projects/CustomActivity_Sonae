@@ -128,8 +128,8 @@ define([
 	
 
     function save() {
-      var name = 'API Exemplo Sonae';
-
+        var name = 'API Exemplo Sonae';
+        var endpointValue = $('#endpoint-url').val(); 
         // 'payload' is initialized on 'initActivity' above.
         // Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property
@@ -137,6 +137,7 @@ define([
         payload.name = name;
 
         payload['arguments'].execute.inArguments = [{
+            "Endpoint": endpointValue,
 			"Identifier": "{{Contact.Key}}", 
 			"Email": '{{InteractionDefaults.Email}}',
 			"Primeiro_Nome": "{{Contact.Attribute.DE_teste.Nome}}"
