@@ -1,5 +1,6 @@
 { 
-	"key": "e0e2b402-17b9-4b4c-add0-61b614f4ac72",
+	"key": "78bdafc4-c22f-4d29-99c5-8e229a96b109",
+  
     "workflowApiVersion": "1.1",
     "metaData": {
         "icon": "images/icon_real.png",
@@ -27,7 +28,7 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "e0e2b402-17b9-4b4c-add0-61b614f4ac72",
+      "applicationExtensionKey": "78bdafc4-c22f-4d29-99c5-8e229a96b109",
 	  "defaults": {
 		"activity": "0"
 	  },
