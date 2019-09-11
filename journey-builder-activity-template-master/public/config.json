@@ -10,7 +10,7 @@
     "type": "REST",
     "lang": {
         "en-US": {
-          "name": "API Martins",
+          "name": "API Exemplo Sonae",
           "description": "Chama API Sistema"
         }
     },

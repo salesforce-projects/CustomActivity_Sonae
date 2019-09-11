@@ -128,7 +128,7 @@ define([
 	
 
     function save() {
-      var name = 'API MARTINS';
+      var name = 'API Exemplo Sonae';
 
         // 'payload' is initialized on 'initActivity' above.
         // Journey Builder sends an initial payload with defaults
