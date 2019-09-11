@@ -83,9 +83,6 @@ exports.execute = function (req, res) {
             console.error('ERRO AQUI: ' + err);
             return res.status(401).end();
         }
-		
-		
-		
 			
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
             console.log("entrou no if dos argumentos");
