@@ -1,0 +1,88 @@
+{ 
+	"key": "e0e2b402-17b9-4b4c-add0-61b614f4ac72",
+    "workflowApiVersion": "1.1",
+    "metaData": {
+        "icon": "images/icon_real.png",
+        "iconSmall": "images/icon_real.png",
+        "category": "message"
+    },
+    "type": "REST",
+    "lang": {
+        "en-US": {
+          "name": "API Martins",
+          "description": "Chama API Sistema"
+        }
+    },
+    "arguments": {
+        "execute": {
+           "inArguments":[],
+          "outArguments": [], 
+          "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/execute",
+			"verb": "POST",
+			"body": "",
+			"header": "",
+			"format": "json",
+			"useJwt": true,
+			"timeout": 10000
+        }
+    },
+    "configurationArguments": {
+      "applicationExtensionKey": "e0e2b402-17b9-4b4c-add0-61b614f4ac72",
+	  "defaults": {
+		"activity": "0"
+	  },
+      "save": {
+        "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/save",
+          "verb": "POST",
+        "useJwt": true 
+       },
+       "publish": {
+        "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/publish",
+           "verb": "POST",
+        "useJwt": true
+       },
+      "stop": {
+        "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/stop",
+           "verb": "POST",
+        "useJwt": true
+      },
+      "validate": {
+        "url": "https://customactivity-apiconnection.herokuapp.com/journeybuilder/validate",
+        "verb": "POST",
+        "useJwt": true
+      }
+    },
+    "wizardSteps": [
+        { "label": "Configure Activity", "key": "step1" }
+    ],
+    "userInterfaces": {
+        "configModal": {
+            "height": 400,
+            "width": 1000,
+          "fullscreen": false
+        }
+    },
+    "schema": {
+        "arguments": {
+            "execute": {
+                "inArguments": [
+                    {
+                        "phoneNumber": {
+                            "dataType": "Phone",
+                            "isNullable": false,
+                            "direction": "in"   
+                        }
+                    },
+                    {
+                        "emailAddress": {
+                            "dataType": "Email",
+                            "isNullable": false,
+                            "direction": "in"
+                        }
+                    }
+                ],
+                "outArguments": []
+            }
+        }
+    }
+}
