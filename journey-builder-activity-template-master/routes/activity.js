@@ -91,9 +91,9 @@ exports.execute = function (req, res) {
             var endpoint = decoded.inArguments[0].Endpoint;
             var host;   
             var indexPath;
-            for (var i = 4; i < endpoint.length; i++) {
+            for (var i = 0; i < endpoint.length; i++) {
                 if (endpoint.substring(i, i+1) == '/'){
-                    host = endpoint.substring(4, i);
+                    host = endpoint.substring(0, i);
                     indexPath = i;
                     break;
                 }
