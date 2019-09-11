@@ -108,8 +108,8 @@ exports.execute = function (req, res) {
 								const data = JSON.stringify(decodedArgs)
 
 								const options = {
-								  hostname: 'postb.in',
-								  path: process.env.Bin,
+								  hostname: host,
+								  path: path,
 								  method: 'POST',
 								  headers: {
 									'Content-Type': 'application/json',
