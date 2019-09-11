@@ -93,7 +93,7 @@ exports.execute = function (req, res) {
             
             for (var i = 4; i < endpoint.length; i++) {
                 if (endpoint.substring(i, i+1) == '.'){
-                    host = endpoint.substring(4, i+1);
+                    host = endpoint.substring(4, i);
                     break;
                 }
              }
