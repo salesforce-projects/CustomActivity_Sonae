@@ -98,7 +98,7 @@ exports.execute = function (req, res) {
                     break;
                 }
              }
-             path = endpoint.substring(indexPath, endpoint.length);
+             var path = endpoint.substring(indexPath, endpoint.length);
 
              console.log('HOST HERE -> ' + host);
              console.log('PATH HERE -> ' + path);
