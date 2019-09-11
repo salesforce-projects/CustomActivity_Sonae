@@ -87,7 +87,8 @@ exports.execute = function (req, res) {
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
             console.log("entrou no if dos argumentos");
 			console.log("ARGUMENT -> " + util.inspect(decoded.inArguments[0]));
-			console.log ('SIZE -> ' + jsonSize(decoded.inArguments[0]));
+            console.log ('SIZE -> ' + jsonSize(decoded.inArguments[0]));
+            console.log('ENDPOINT -> ' + decoded.inArguments[0].Endpoint);
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
             
