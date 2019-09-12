@@ -120,11 +120,7 @@ exports.execute = function (req, res) {
     //Get acess Token
     //Auth endpoint: https://mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com/
 
-    var body = '{\
-        grant_type: "client_credentials",\
-        client_id: "cfly1ym6xx6y34jbqw0idypq",\
-        client_secret: "FXaTXByn5UyO7r1equQ8OwxU"\
-    }\ ';
+    var body = '{grant_type: "client_credentials",client_id: "cfly1ym6xx6y34jbqw0idypq",client_secret: "FXaTXByn5UyO7r1equQ8OwxU"}';
     const data = JSON.stringify(body);
     console.log("REQUEST BODY POST -> " + data);
 
