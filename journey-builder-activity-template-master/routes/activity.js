@@ -188,7 +188,9 @@ exports.execute = function (req, res) {
                 client_id: 'yxvkvkkn3sixeuxv3ha4z94d',
                 client_secret : '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
-								const data = JSON.stringify(body)
+            console.log("BODY JSON -> " + JSON.stringify(body));
+            console.log("BODY DECODED ARGS -> " + JSON.stringify(decodedArgs));
+								const data = JSON.stringify(decodedArgs)
 
 								const options = {
 								  hostname: host,
@@ -196,7 +198,7 @@ exports.execute = function (req, res) {
 								  method: 'POST',
 								  headers: {
 									'Content-Type': 'application/json',
-									'Content-Length': jsonSize(data)
+									'Content-Length': jsonSize(decodedArgs)
 								  }
 								}
 
