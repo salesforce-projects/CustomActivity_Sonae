@@ -119,12 +119,12 @@ exports.execute = function (req, res) {
 
     //Get acess Token
     //Auth endpoint: https://mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com/
-    var body = {
+    var data = {
         grant_type: 'client_credentials',
         client_id: 'yxvkvkkn3sixeuxv3ha4z94d',
         client_secret : '2EG7sOFjI5wrevOHMOE3ZEWL'
     };
-    const data = JSON.stringify(body);
+   // const data = JSON.stringify(body);
     console.log("REQUEST BODY POST -> " + data);
     console.log("SIZE JSON SFMC -> " + jsonSize(data));
 
