@@ -135,7 +135,7 @@ exports.execute = function (req, res) {
 								}
 
 								const req2 = http.request(options, (res) => {
-								  console.log('statusCode: ' + res.statusCode)
+								  console.log('statusCode marketing: ' + res.statusCode)
 
 								  res.on('data', (d) => {
 									process.stdout.write(d)
@@ -153,7 +153,7 @@ exports.execute = function (req, res) {
 
 
     // example on how to decode JWT
-    JWT(req.body, process.env.jwtSecret, (err, decoded) => {
+    /*JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
         // verification error -> unauthorized request
         if (err) {
@@ -214,7 +214,7 @@ exports.execute = function (req, res) {
             console.error('inArguments invalid.');
             return res.status(400).end();
         }
-    });
+    });*/
 };
 
 
