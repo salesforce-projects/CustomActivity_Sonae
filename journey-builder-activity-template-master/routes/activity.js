@@ -126,7 +126,7 @@ exports.execute = function (req, res) {
     };
     const data = JSON.stringify(body);
     console.log("REQUEST BODY POST -> " + data);
-
+    console.log("SIZE JSON SFMC -> " + jsonSize(data));
 								const options = {
 								  hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
 								  path: '/v2/token',
