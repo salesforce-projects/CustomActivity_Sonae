@@ -120,7 +120,11 @@ exports.execute = function (req, res) {
     //Get acess Token
     //Auth endpoint: https://mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com/
 
-    var body = "{grant_type: client_credentials, client_id: cfly1ym6xx6y34jbqw0idypq, client_secret: FXaTXByn5UyO7r1equQ8OwxU}";
+    var body = '{\
+                    grant_type: "client_credentials",\
+                    client_id: "yxvkvkkn3sixeuxv3ha4z94d",\
+                    client_secret:"2EG7sOFjI5wrevOHMOE3ZEWL" \
+                }';
     const data = JSON.stringify(body);
     console.log("REQUEST BODY POST -> " + data);
 
@@ -130,12 +134,12 @@ exports.execute = function (req, res) {
 								  method: 'POST',
 								  headers: {
 									'Content-Type': 'application/json',
-									'Content-Length': 133
+									'Content-Length': jsonSize(data)
 								  }
 								}
 
 								const req2 = http.request(options, (res) => {
-								  console.log('statusCode marketing: ' + res.statusCode)
+								  console.log('statusCode: ' + res.statusCode)
 
 								  res.on('data', (d) => {
 									process.stdout.write(d)
@@ -153,7 +157,7 @@ exports.execute = function (req, res) {
 
 
     // example on how to decode JWT
-    /*JWT(req.body, process.env.jwtSecret, (err, decoded) => {
+    JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
         // verification error -> unauthorized request
         if (err) {
@@ -214,7 +218,7 @@ exports.execute = function (req, res) {
             console.error('inArguments invalid.');
             return res.status(400).end();
         }
-    });*/
+    });
 };
 
 
