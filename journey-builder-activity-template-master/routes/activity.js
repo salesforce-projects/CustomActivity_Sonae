@@ -190,7 +190,7 @@ exports.execute = function (req, res) {
             };
             console.log("BODY JSON -> " + JSON.stringify(body));
             console.log("BODY DECODED ARGS -> " + JSON.stringify(body));
-								const data = JSON.stringify(decodedArgs)
+								const data = JSON.stringify(body)
 
 								const options = {
 								  hostname: host,
