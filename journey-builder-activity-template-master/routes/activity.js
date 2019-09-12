@@ -124,7 +124,7 @@ exports.execute = function (req, res) {
         grant_type: "client_credentials",\
         client_id: "cfly1ym6xx6y34jbqw0idypq",\
         client_secret: "FXaTXByn5UyO7r1equQ8OwxU"\
-    }';
+    }\ ';
     const data = JSON.stringify(body);
 
 								const options = {
