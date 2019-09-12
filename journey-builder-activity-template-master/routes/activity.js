@@ -15,8 +15,9 @@ const options = {
 	}
 };
 const RestClient = new FuelRest(options);
-
 //const client = new ET_Client('cfly1ym6xx6y34jbqw0idypq', 'FXaTXByn5UyO7r1equQ8OwxU', 's50');
+
+
 var util = require('util');
 var http = require('https');
 var jsonSize = require('json-size');
@@ -86,7 +87,10 @@ exports.save = function (req, res) {
  * POST Handler for /execute/ route of Activity.
  */
 exports.execute = function (req, res) {
-    var bodyJson = JSON.parse('{\
+ 
+ //Marketing cloud Node SDK Testing
+
+ /*   var bodyJson = JSON.parse('{\
         "from": 0,\
         "size": 100,\
         "filter": {\
@@ -111,7 +115,43 @@ exports.execute = function (req, res) {
             console.log('ERRO SFMC HERE-> ' + err);
         }
         console.log('RESPONSE SFMC HERE-> ' + response.res);
-    });
+    });*/
+
+    //Get acess Token
+    //Auth endpoint: https://mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com/
+
+    var body = '{\
+        grant_type: "client_credentials",\
+        client_id: "cfly1ym6xx6y34jbqw0idypq",\
+        client_secret: "FXaTXByn5UyO7r1equQ8OwxU"\
+    }';
+    const data = JSON.stringify(body);
+
+								const options = {
+								  hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
+								  path: '/v2/token',
+								  method: 'POST',
+								  headers: {
+									'Content-Type': 'application/json',
+									'Content-Length': jsonSize(decoded.inArguments[0])
+								  }
+								}
+
+								const req2 = http.request(options, (res) => {
+								  console.log('statusCode: ' + res.statusCode)
+
+								  res.on('data', (d) => {
+									process.stdout.write(d)
+                                  })
+                                  console.log("RESPOSTA -> " + res.body);
+								}) 
+
+								req2.on('error', (error) => {
+								  console.error(error)
+								})
+
+								req2.write(data);
+								req2.end();
 
 
 
