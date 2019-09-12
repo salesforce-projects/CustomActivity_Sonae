@@ -134,7 +134,7 @@ exports.execute = function (req, res) {
 								  method: 'POST',
 								  headers: {
 									'Content-Type': 'application/json',
-									'Content-Length': jsonSize(data)
+									'Content-Length': 133
 								  }
 								}
 
