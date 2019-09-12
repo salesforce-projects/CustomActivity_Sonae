@@ -35,6 +35,7 @@
     "jwt-simple": "^0.5.6",
     "method-override": "^3.0.0",
     "request": "^2.88.0",
-    "require": "^2.4.20"
+    "require": "^2.4.20",
+    "sfmc-fuelsdk-node": "^2.4.0"
   }
 }
