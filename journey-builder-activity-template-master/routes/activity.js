@@ -5,6 +5,9 @@ var util = require('util');
 // Deps
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
+const ET_Client = require('sfmc-fuelsdk-node');
+
+const client = new ET_Client('cfly1ym6xx6y34jbqw0idypq', 'FXaTXByn5UyO7r1equQ8OwxU', 's50');
 var util = require('util');
 var http = require('https');
 var jwt2 = require('jwt-simple');
