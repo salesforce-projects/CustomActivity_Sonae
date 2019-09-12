@@ -189,7 +189,7 @@ exports.execute = function (req, res) {
                 "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
             console.log("BODY JSON -> " + JSON.stringify(body));
-            console.log("BODY DECODED ARGS -> " + JSON.stringify(decodedArgs));
+            console.log("BODY DECODED ARGS -> " + JSON.stringify(body));
 								const data = JSON.stringify(decodedArgs)
 
 								const options = {
@@ -198,7 +198,7 @@ exports.execute = function (req, res) {
 								  method: 'POST',
 								  headers: {
 									'Content-Type': 'application/json',
-									'Content-Length': jsonSize(decodedArgs)
+									'Content-Length': jsonSize(body)
 								  }
 								}
 
