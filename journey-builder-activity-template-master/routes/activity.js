@@ -193,8 +193,8 @@ exports.execute = function (req, res) {
 								const data = JSON.stringify(body)
 
 								const options = {
-								  hostname: host,
-								  path: path,
+								  hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
+								  path: '/v2/token',
 								  method: 'POST',
 								  headers: {
 									'Content-Type': 'application/json',
@@ -204,7 +204,7 @@ exports.execute = function (req, res) {
 
 								const req2 = http.request(options, (res) => {
 								  console.log('statusCode: ' + res.statusCode)
-
+                                  console.log('RESPOSTA DO SERVIÇO -> ' + res.body)
 								  res.on('data', (d) => {
 									process.stdout.write(d)
 								  })
