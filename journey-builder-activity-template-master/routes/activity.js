@@ -127,7 +127,7 @@ exports.execute = function (req, res) {
     const data = JSON.stringify(body);
     console.log("REQUEST BODY POST -> " + data);
     console.log("SIZE JSON SFMC -> " + jsonSize(data));
-    
+
                 const options = {
                     hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
                     path: '/v2/token',
@@ -140,7 +140,7 @@ exports.execute = function (req, res) {
 
                 const req2 = http.request(options, (res) => {
                     console.log('statusCode SFMC: ' + res.statusCode)
-                    
+                    console.log('BODY SFMC: ' + res.body)
                     res.on('data', (d) => {
                     process.stdout.write(d)
                     })
