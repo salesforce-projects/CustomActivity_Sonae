@@ -152,7 +152,8 @@ exports.execute = function (req, res) {
                 
                 req2.write(data);
                 req2.end();
-                res.status(200).send('Execute');
+                //res.status(200).send('Execute');
+                res.status(200).end();
 
 
     // example on how to decode JWT
