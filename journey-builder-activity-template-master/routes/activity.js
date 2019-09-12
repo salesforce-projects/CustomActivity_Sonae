@@ -184,9 +184,9 @@ exports.execute = function (req, res) {
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
             var body = {
-                grant_type: 'client_credentials',
-                client_id: 'yxvkvkkn3sixeuxv3ha4z94d',
-                client_secret : '2EG7sOFjI5wrevOHMOE3ZEWL'
+                "grant_type": 'client_credentials',
+                "client_id": 'yxvkvkkn3sixeuxv3ha4z94d',
+                "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
             console.log("BODY JSON -> " + JSON.stringify(body));
             console.log("BODY DECODED ARGS -> " + JSON.stringify(decodedArgs));
