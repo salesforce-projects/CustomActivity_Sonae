@@ -119,12 +119,12 @@ exports.execute = function (req, res) {
 
     //Get acess Token
     //Auth endpoint: https://mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com/
-    var data = {
+   /* var body = {
         grant_type: 'client_credentials',
         client_id: 'yxvkvkkn3sixeuxv3ha4z94d',
         client_secret : '2EG7sOFjI5wrevOHMOE3ZEWL'
     };
-   // const data = JSON.stringify(body);
+    const data = JSON.stringify(body);
     console.log("REQUEST BODY POST -> " + data);
     console.log("SIZE JSON SFMC -> " + jsonSize(data));
 
@@ -153,9 +153,9 @@ exports.execute = function (req, res) {
                 req2.write(data);
                 req2.end();
 
-
+*/
     // example on how to decode JWT
-  /*  JWT(req.body, process.env.jwtSecret, (err, decoded) => {
+    JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
         // verification error -> unauthorized request
         if (err) {
@@ -183,8 +183,12 @@ exports.execute = function (req, res) {
              console.log('PATH HERE -> ' + path);
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
-            
-								const data = JSON.stringify(decodedArgs)
+            var body = {
+                grant_type: 'client_credentials',
+                client_id: 'yxvkvkkn3sixeuxv3ha4z94d',
+                client_secret : '2EG7sOFjI5wrevOHMOE3ZEWL'
+            };
+								const data = JSON.stringify(body)
 
 								const options = {
 								  hostname: host,
@@ -192,7 +196,7 @@ exports.execute = function (req, res) {
 								  method: 'POST',
 								  headers: {
 									'Content-Type': 'application/json',
-									'Content-Length': jsonSize(decoded.inArguments[0])
+									'Content-Length': jsonSize(data)
 								  }
 								}
 
@@ -216,7 +220,7 @@ exports.execute = function (req, res) {
             console.error('inArguments invalid.');
             return res.status(400).end();
         }
-    });*/
+    });
 };
 
 
