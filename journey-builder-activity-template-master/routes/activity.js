@@ -6,11 +6,19 @@ var util = require('util');
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
 const ET_Client = require('sfmc-fuelsdk-node');
+const FuelRest = require('fuel-rest');
+const options = {
+	auth: {
+		// options you want passed when Fuel Auth is initialized
+		clientId: 'cfly1ym6xx6y34jbqw0idypq',
+		clientSecret: 'FXaTXByn5UyO7r1equQ8OwxU'
+	}
+};
+const RestClient = new FuelRest(options);
 
-const client = new ET_Client('cfly1ym6xx6y34jbqw0idypq', 'FXaTXByn5UyO7r1equQ8OwxU', 's50');
+//const client = new ET_Client('cfly1ym6xx6y34jbqw0idypq', 'FXaTXByn5UyO7r1equQ8OwxU', 's50');
 var util = require('util');
 var http = require('https');
-var jwt2 = require('jwt-simple');
 var jsonSize = require('json-size');
 
 exports.logExecuteData = [];
@@ -78,6 +86,35 @@ exports.save = function (req, res) {
  * POST Handler for /execute/ route of Activity.
  */
 exports.execute = function (req, res) {
+    var bodyJson = JSON.parse('{\
+        "from": 0,\
+        "size": 100,\
+        "filter": {\
+            "fquery": {\
+                "query": {\
+                    "query_string": {	\
+                        "query": "(definitionId:54a8bbab-4a74-4b73-bdbd-ec0d582b2f88) AND(transactionTime:[2019-09-05T13:20:45.101Z TO *])"\
+                    }\
+                }\
+            }\
+        }\
+    }');
+    //Marketing Cloud API resquest
+    const optionspost = {
+        uri: '/interaction/v1/interactions/traceevents/search',
+        json: true,
+        body: bodyJson
+    };
+    RestClient.post(optionspost, (err, response) => {
+        if (err) {
+            // error here
+            console.log('ERRO SFMC HERE-> ' + err);
+        }
+        console.log('RESPONSE SFMC HERE-> ' + response.res);
+    });
+
+
+
     // example on how to decode JWT
     JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
