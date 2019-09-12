@@ -127,35 +127,36 @@ exports.execute = function (req, res) {
     const data = JSON.stringify(body);
     console.log("REQUEST BODY POST -> " + data);
     console.log("SIZE JSON SFMC -> " + jsonSize(data));
-								const options = {
-								  hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
-								  path: '/v2/token',
-								  method: 'POST',
-								  headers: {
-									'Content-Type': 'application/json',
-									'Content-Length': jsonSize(data)
-								  }
-								}
+    
+                const options = {
+                    hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
+                    path: '/v2/token',
+                    method: 'POST',
+                    headers: {
+                    'Content-Type': 'application/json',
+                    'Content-Length': jsonSize(data)
+                    }
+                }
 
-								const req2 = http.request(options, (res) => {
-								  console.log('statusCode SFMC: ' + res.statusCode)
-                                    
-								  res.on('data', (d) => {
-									process.stdout.write(d)
-                                  })
-								}) 
-                                
-								req2.on('error', (error) => {
-								  console.error(error) 
-								})
-                                
-								req2.write(data);
-                                req2.end();
+                const req2 = http.request(options, (res) => {
+                    console.log('statusCode SFMC: ' + res.statusCode)
+                    
+                    res.on('data', (d) => {
+                    process.stdout.write(d)
+                    })
+                }) 
+                
+                req2.on('error', (error) => {
+                    console.error(error) 
+                })
+                
+                req2.write(data);
+                req2.end();
 
 
 
     // example on how to decode JWT
-    JWT(req.body, process.env.jwtSecret, (err, decoded) => {
+  /*  JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
         // verification error -> unauthorized request
         if (err) {
@@ -216,7 +217,7 @@ exports.execute = function (req, res) {
             console.error('inArguments invalid.');
             return res.status(400).end();
         }
-    });
+    });*/
 };
 
 
