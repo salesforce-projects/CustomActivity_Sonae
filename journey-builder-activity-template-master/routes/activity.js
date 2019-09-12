@@ -126,6 +126,7 @@ exports.execute = function (req, res) {
         client_secret: "FXaTXByn5UyO7r1equQ8OwxU"\
     }\ ';
     const data = JSON.stringify(body);
+    console.log("REQUEST BODY POST -> " + data);
 
 								const options = {
 								  hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
