@@ -137,6 +137,7 @@ define([
         payload.name = name;
 
         payload['arguments'].execute.inArguments = [{
+            "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue,
 			"Identifier": "{{Contact.Key}}", 
 			"Email": '{{InteractionDefaults.Email}}',
