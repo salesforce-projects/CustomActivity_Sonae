@@ -140,19 +140,18 @@ exports.execute = function (req, res) {
 
 								const req2 = http.request(options, (res) => {
 								  console.log('statusCode: ' + res.statusCode)
-
+                                    
 								  res.on('data', (d) => {
 									process.stdout.write(d)
                                   })
-                                  console.log("RESPOSTA -> " + res.body);
 								}) 
-
+                                
 								req2.on('error', (error) => {
 								  console.error(error)
 								})
-
+                                
 								req2.write(data);
-								req2.end();
+                                req2.end();
 
 
 
