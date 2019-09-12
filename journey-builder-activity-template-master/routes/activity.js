@@ -130,7 +130,7 @@ exports.execute = function (req, res) {
 								  method: 'POST',
 								  headers: {
 									'Content-Type': 'application/json',
-									'Content-Length': jsonSize(body)
+									'Content-Length': jsonSize(data)
 								  }
 								}
 
