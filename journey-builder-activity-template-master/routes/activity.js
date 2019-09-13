@@ -90,7 +90,7 @@ exports.execute = function (req, res) {
  
  //Marketing cloud Node SDK Testing
 
- /*   var bodyJson = JSON.parse('{\
+    var bodyJson = JSON.parse('{\
         "from": 0,\
         "size": 100,\
         "filter": {\
@@ -102,7 +102,7 @@ exports.execute = function (req, res) {
                 }\
             }\
         }\
-    }');*/
+    }');
     //Marketing Cloud API resquest
     const optionspost = {
         uri: '/interaction/v1/interactions/traceevents/search',
