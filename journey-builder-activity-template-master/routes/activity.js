@@ -102,7 +102,7 @@ exports.execute = function (req, res) {
                 }\
             }\
         }\
-    }');
+    }');*/
     //Marketing Cloud API resquest
     const optionspost = {
         uri: '/interaction/v1/interactions/traceevents/search',
@@ -115,7 +115,7 @@ exports.execute = function (req, res) {
             console.log('ERRO SFMC HERE-> ' + err);
         }
         console.log('RESPONSE SFMC HERE-> ' + response.res);
-    });*/
+    });
 
     //Get acess Token
     //Auth endpoint: https://mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com/
