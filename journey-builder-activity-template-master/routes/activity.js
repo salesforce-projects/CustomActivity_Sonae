@@ -203,7 +203,9 @@ exports.execute = function (req, res) {
 								}
 
 								const req2 = http.request(options, (res) => {
-								  console.log('statusCode: ' + res.statusCode)
+                                  console.log('statusCode: ' + res.statusCode)
+                                  
+                                console.log("RESPOSTA DO REQUEST -> " + res.response);
 								  res.on('data', (d) => {
 									process.stdout.write(d)
 								  })
@@ -212,7 +214,6 @@ exports.execute = function (req, res) {
 								req2.on('error', (error) => {
 								  console.error(error)
 								})
-                                console.log("RESPOSTA DO REQUEST -> " + req2.body);
 								req2.write(data);
 								req2.end();
             logData(req);
