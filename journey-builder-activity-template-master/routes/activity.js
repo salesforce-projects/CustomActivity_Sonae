@@ -178,7 +178,7 @@ exports.execute = function (req, res) {
                 }
              }
              var path = endpoint.substring(indexPath, endpoint.length);
-             var resposta;
+             var resposta = [];
              console.log('HOST HERE -> ' + host);
              console.log('PATH HERE -> ' + path);
             // decoded in arguments
@@ -208,7 +208,8 @@ exports.execute = function (req, res) {
                                 
 								  res.on('data', (d) => {
                                     console.log("RESPOSTA DO REQUEST -> " + d);
-                                    console.log("TOKEN ->" + d.access_token);                                    
+                                    resposta.push(d);
+                                    console.log("TOKEN ->" + resposta.access_token);                                    
 								  })
 								}) 
 
