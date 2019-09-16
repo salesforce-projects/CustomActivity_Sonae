@@ -208,8 +208,7 @@ exports.execute = function (req, res) {
                                 
 								  res.on('data', (d) => {
                                     console.log("RESPOSTA DO REQUEST -> " + d);
-                                    resposta = JSON.parse(d);
-                                    console.log("TOKEN ->" + resposta.access_token);                                    
+                                    console.log("TOKEN ->" + d.access_token);                                    
 								  })
 								}) 
 
