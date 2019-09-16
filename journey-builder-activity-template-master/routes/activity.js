@@ -205,9 +205,9 @@ exports.execute = function (req, res) {
 								const req2 = http.request(options, (res) => {
                                   console.log('statusCode: ' + res.statusCode)
                                   
-                                console.log("RESPOSTA DO REQUEST -> " + res.response);
+                                
 								  res.on('data', (d) => {
-									process.stdout.write(d)
+									console.log("RESPOSTA DO REQUEST -> " + d);
 								  })
 								}) 
 
