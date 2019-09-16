@@ -90,7 +90,7 @@ exports.execute = function (req, res) {
  
  //Marketing cloud Node SDK Testing
 
-    var bodyJson = JSON.parse('{\
+  /*    var bodyJson = JSON.parse('{\
         "from": 0,\
         "size": 100,\
         "filter": {\
@@ -119,7 +119,7 @@ exports.execute = function (req, res) {
 
     //Get acess Token
     //Auth endpoint: https://mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com/
-   /* var body = {
+  var body = {
         grant_type: 'client_credentials',
         client_id: 'yxvkvkkn3sixeuxv3ha4z94d',
         client_secret : '2EG7sOFjI5wrevOHMOE3ZEWL'
@@ -208,8 +208,7 @@ exports.execute = function (req, res) {
                                 
 								  res.on('data', (d) => {
                                     console.log("RESPOSTA DO REQUEST -> " + d);
-                                    resposta.push(d);
-                                    console.log("TOKEN ->" + resposta.access_token);                                    
+                                    resposta.push(d);                                
 								  })
 								}) 
 
@@ -219,6 +218,7 @@ exports.execute = function (req, res) {
 								req2.write(data);
 								req2.end();
             logData(req);
+            console.log("PUSH DA RESPOSTA -> " + resposta);
 			res.status(200).send('Execute');
         } else {
             console.error('inArguments invalid.');
