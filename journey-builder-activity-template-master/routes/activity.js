@@ -87,73 +87,7 @@ exports.save = function (req, res) {
  * POST Handler for /execute/ route of Activity.
  */
 exports.execute = function (req, res) {
- 
- //Marketing cloud Node SDK Testing
-
-  /*    var bodyJson = JSON.parse('{\
-        "from": 0,\
-        "size": 100,\
-        "filter": {\
-            "fquery": {\
-                "query": {\
-                    "query_string": {	\
-                        "query": "(definitionId:54a8bbab-4a74-4b73-bdbd-ec0d582b2f88) AND(transactionTime:[2019-09-05T13:20:45.101Z TO *])"\
-                    }\
-                }\
-            }\
-        }\
-    }');
-    //Marketing Cloud API resquest
-    const optionspost = {
-        uri: '/interaction/v1/interactions/traceevents/search',
-        json: true,
-        body: bodyJson
-    };
-    RestClient.post(optionspost, (err, response) => {
-        if (err) {
-            // error here
-            console.log('ERRO SFMC HERE-> ' + err);
-        }
-        console.log('RESPONSE SFMC HERE-> ' + response.res);
-    });
-
-    //Get acess Token
-    //Auth endpoint: https://mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com/
-  var body = {
-        grant_type: 'client_credentials',
-        client_id: 'yxvkvkkn3sixeuxv3ha4z94d',
-        client_secret : '2EG7sOFjI5wrevOHMOE3ZEWL'
-    };
-    const data = JSON.stringify(body);
-    console.log("REQUEST BODY POST -> " + data);
-    console.log("SIZE JSON SFMC -> " + jsonSize(data));
-
-                const options = {
-                    hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
-                    path: '/v2/token',
-                    method: 'POST',
-                    headers: {
-                    'Content-Type': 'application/json',
-                    'Content-Length': jsonSize(data)
-                    }
-                }
-
-                const req2 = http.request(options, (res) => {
-                    console.log('statusCode SFMC: ' + res.statusCode)
-                    console.log('BODY SFMC: ' + res.body)
-                    res.on('data', (d) => {
-                    process.stdout.write(d)
-                    })
-                }) 
-                
-                req2.on('error', (error) => {
-                    console.error(error) 
-                })
-                
-                req2.write(data);
-                req2.end();
-
-*/
+    
     // example on how to decode JWT
     JWT(req.body, process.env.jwtSecret, (err, decoded) => {
 
@@ -163,6 +97,8 @@ exports.execute = function (req, res) {
         }
 			
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
+
+            /*ENDPOINT INTERFACE*/
             var endpoint = decoded.inArguments[0].Endpoint;
             var host;   
             var indexPath;
@@ -174,45 +110,97 @@ exports.execute = function (req, res) {
                 }
              }
              var path = endpoint.substring(indexPath, endpoint.length);
-            // decoded in arguments
-            var decodedArgs = decoded.inArguments[0];
+             /*ENDPOINT INTERFACE*/
+
+            /*----------------------ACESSTOKEN-----------------------*/
             var body = {
                 "grant_type": 'client_credentials',
                 "client_id": 'yxvkvkkn3sixeuxv3ha4z94d',
                 "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
-            var resposta;
-								const data = JSON.stringify(body)
+            var respostaAuth;
+            const data = JSON.stringify(body)
 
-								const options = {
-								  hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
-								  path: '/v2/token',
-								  method: 'POST',
-								  headers: {
-									'Content-Type': 'application/json',
-									'Content-Length': jsonSize(body)
-								  }
-								}
+            const options = {
+                hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
+                path: '/v2/token',
+                method: 'POST',
+                headers: {
+                'Content-Type': 'application/json',
+                'Content-Length': jsonSize(body)
+                }
+            }
 
-								const req2 = http.request(options, (res) => {
-                                  console.log('statusCode: ' + res.statusCode)
-                                  
-                                  let chunks = [];
-								  res.on('data', (d) => {
-                                    chunks.push(d);
-								  }).on('end', function() {
-                                    let data   = Buffer.concat(chunks);
-                                    resposta = JSON.parse(data);
-                                    console.log(resposta.access_token);
-                                  });
-								}) 
+            const req2 = http.request(options, (res) => {
+                console.log('statusCode: ' + res.statusCode)
+                
+                let chunks = [];
+                res.on('data', (d) => {
+                chunks.push(d);
+                }).on('end', function() {
+                let data   = Buffer.concat(chunks);
+                respostaAuth = JSON.parse(data);
+                console.log(respostaAuth.access_token);
+                });
+            }) 
 
-								req2.on('error', (error) => {
-								  console.error(error)
-								})
-								req2.write(data);
-                                req2.end();
-                                
+            req2.on('error', (error) => {
+                console.error(error)
+            })
+            req2.write(data);
+            req2.end();
+            /*----------------------ACESSTOKEN-----------------------*/
+
+            /*----------------------HISTORYJOURNEY-------------------*/
+            var body = {
+                "from": 0,
+                "size": 100,
+                "filter": {
+                    "fquery": {
+                        "query": {
+                            "query_string": {	
+                                "query": "(definitionId:" + decoded.inArguments[0].DefinitionId + ") AND(transactionTime:[2019-09-05T13:20:45.101Z TO *])"
+                            }
+                        }
+                    }
+                }
+            };
+            var respostaJourneyInfo;
+            const data = JSON.stringify(body)
+
+            const options = {
+                hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.rest.marketingcloudapis.com',
+                path: '/interaction/v1/interactions/traceevents/search',
+                method: 'POST',
+                headers: {
+                'Authorization' : respostaAuth.access_token,
+                'Content-Type': 'application/json',
+                'Content-Length': jsonSize(body)
+                }
+            }
+
+            const req2 = http.request(options, (res) => {
+                console.log('statusCode: ' + res.statusCode)
+                
+                let chunks = [];
+                res.on('data', (d) => {
+                chunks.push(d);
+                }).on('end', function() {
+                let data   = Buffer.concat(chunks);
+                respostaJourneyInfo = JSON.parse(data);
+                console.log("RESPOSTA JOURNEY -> " + respostaJourneyInfo);
+                });
+            }) 
+
+            req2.on('error', (error) => {
+                console.error(error)
+            })
+            req2.write(data);
+            req2.end();
+            /*----------------------HISTORYJOURNEY-----------------------*/
+
+
+
             logData(req);
 			res.status(200).send('Execute');
         } else {
