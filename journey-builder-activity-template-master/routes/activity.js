@@ -166,7 +166,7 @@ exports.execute = function (req, res) {
                 }
             };
             var respostaJourneyInfo;
-            const data = JSON.stringify(body)
+            data = JSON.stringify(body)
 
             const options = {
                 hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.rest.marketingcloudapis.com',
