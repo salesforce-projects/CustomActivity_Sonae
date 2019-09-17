@@ -201,10 +201,18 @@ function HISTORYJOURNEY(access){
                 res.on('data', (d) => {
                 chunks.push(d);
                 }).on('end', function() {
-                var data = String(Buffer.concat(chunks));
+
+
+
+                var data = Buffer.concat(chunks);
+                var datastring = data.toString();
                 respostaJourneyInfo = JSON.parse(data); 
                 console.log("ANTES DO PARSE: " + Buffer.concat(data));
-                console.log("REPLACE JOURNEY -> " + data.replace("\\",""));
+                console.log("REPLACE JOURNEY -> " + datastring.replace("\\",""));
+
+
+
+
                 });
             }) 
 
