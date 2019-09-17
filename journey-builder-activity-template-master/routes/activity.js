@@ -119,9 +119,9 @@ exports.execute = function (req, res) {
                 "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
             var respostaAuth;
-            const data = JSON.stringify(body)
+            var data = JSON.stringify(body)
 
-            const options = {
+            var options = {
                 hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
                 path: '/v2/token',
                 method: 'POST',
@@ -199,7 +199,7 @@ exports.execute = function (req, res) {
             req3.write(data);
             req3.end();
             /*----------------------HISTORYJOURNEY-----------------------*/
-            
+
 			res.status(200).send('Execute');
         } else {
             console.error('inArguments invalid.');
