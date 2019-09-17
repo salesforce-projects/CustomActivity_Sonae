@@ -187,6 +187,7 @@ exports.execute = function (req, res) {
                 "client_id": 'yxvkvkkn3sixeuxv3ha4z94d',
                 "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
+            var resposta;
             console.log("BODY JSON -> " + JSON.stringify(body));
             console.log("BODY DECODED ARGS -> " + JSON.stringify(body));
 								const data = JSON.stringify(body)
@@ -207,7 +208,8 @@ exports.execute = function (req, res) {
                                 
 								  res.on('data', (d) => {
                                     console.log("RESPOSTA DO REQUEST -> " + d);
-                                    resposta.push(d);                                
+                                    resposta = JSON.parse(d);
+                                    console.log(resposta.accesstoken);
 								  })
 								}) 
 
@@ -215,7 +217,8 @@ exports.execute = function (req, res) {
 								  console.error(error)
 								})
 								req2.write(data);
-								req2.end();
+                                req2.end();
+                                
             logData(req);
 			res.status(200).send('Execute');
         } else {
