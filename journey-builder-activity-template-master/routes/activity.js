@@ -183,7 +183,7 @@ function HISTORYJOURNEY(access){
             data = JSON.stringify(body)
 
             
-            options = {
+            var options = {
                 hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.rest.marketingcloudapis.com',
                 path: '/interaction/v1/interactions/traceevents/search',
                 method: 'POST',
