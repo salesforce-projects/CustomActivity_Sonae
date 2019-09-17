@@ -178,7 +178,6 @@ exports.execute = function (req, res) {
                 }
              }
              var path = endpoint.substring(indexPath, endpoint.length);
-             var resposta = [];
              console.log('HOST HERE -> ' + host);
              console.log('PATH HERE -> ' + path);
             // decoded in arguments
@@ -218,7 +217,6 @@ exports.execute = function (req, res) {
 								req2.write(data);
 								req2.end();
             logData(req);
-            console.log("PUSH DA RESPOSTA -> " + resposta);
 			res.status(200).send('Execute');
         } else {
             console.error('inArguments invalid.');
