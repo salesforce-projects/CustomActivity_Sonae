@@ -152,7 +152,7 @@ exports.execute = function (req, res) {
             req2.write(data);
             req2.end();
             /*----------------------ACESSTOKEN-----------------------*/
-
+//+ decoded.inArguments[0].DefinitionId +
             /*----------------------HISTORYJOURNEY-------------------*/
             var body = {
                 "from": 0,
@@ -161,7 +161,7 @@ exports.execute = function (req, res) {
                     "fquery": {
                         "query": {
                             "query_string": {	
-                                "query": "(definitionId:" + decoded.inArguments[0].DefinitionId + ") AND(transactionTime:[2019-09-05T13:20:45.101Z TO *])"
+                                "query": "(definitionId:54a8bbab-4a74-4b73-bdbd-ec0d582b2f88) AND(transactionTime:[2019-09-05T13:20:45.101Z TO *])"
                             }
                         }
                     }
