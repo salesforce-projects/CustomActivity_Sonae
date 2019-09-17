@@ -202,7 +202,7 @@ exports.execute = function (req, res) {
                                     chunks.push(d);
 								  }).on('end', function() {
                                     let data   = Buffer.concat(chunks);
-                                    let resposta = JSON.parse(data);
+                                    resposta = JSON.parse(data);
                                     console.log(resposta.access_token);
                                   });
 								}) 
