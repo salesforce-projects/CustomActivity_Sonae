@@ -176,7 +176,7 @@ exports.execute = function (req, res) {
                 path: '/interaction/v1/interactions/traceevents/search',
                 method: 'POST',
                 headers: {
-                'Authorization' : respostaAuth.access_token,
+                'Authorization' : 'Bearer ' + respostaAuth.access_token,
                 'Content-Type': 'application/json',
                 'Content-Length': jsonSize(body)
                 }
