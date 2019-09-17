@@ -2,6 +2,7 @@
 
 var util = require('util');
 
+var respostaAuth;
 // Deps
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
@@ -114,7 +115,6 @@ exports.execute = function (req, res) {
              /*ENDPOINT INTERFACE*/
 
             /*----------------------ACESSTOKEN-----------------------*/
-            var respostaAuth;
             var body = {
                 "grant_type": 'client_credentials',
                 "client_id": 'yxvkvkkn3sixeuxv3ha4z94d',
