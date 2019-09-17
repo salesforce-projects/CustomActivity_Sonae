@@ -143,7 +143,7 @@ exports.execute = function (req, res) {
                     let data   = Buffer.concat(chunks);
                     respostaAuth = JSON.parse(data);
                     callback({
-                        HISTORYJOURNEY()
+                        HISTORYJOURNEY(respostaAuth)
                     });
                    
                 });
@@ -166,7 +166,7 @@ exports.execute = function (req, res) {
     });
 };
 
-function HISTORYJOURNEY(){
+function HISTORYJOURNEY(access){
             /*----------------------HISTORYJOURNEY-------------------*/
             
             var body = {
@@ -183,15 +183,15 @@ function HISTORYJOURNEY(){
                 }
             };
             var respostaJourneyInfo;
-            var data = JSON.stringify(body)
+            data = JSON.stringify(body)
 
             
-            var options = {
+            options = {
                 hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.rest.marketingcloudapis.com',
                 path: '/interaction/v1/interactions/traceevents/search',
                 method: 'POST',
                 headers: {
-                'Authorization' : 'Bearer ' + respostaAuth.access_token,
+                'Authorization' : 'Bearer ' + access.access_token,
                 'Content-Type': 'application/json',
                 'Content-Length': jsonSize(body)
                 }
