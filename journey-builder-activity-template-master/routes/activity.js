@@ -203,7 +203,7 @@ function HISTORYJOURNEY(access){
                 }).on('end', function() {
                 let data   = Buffer.concat(chunks);
                 respostaJourneyInfo = JSON.parse(data);
-                console.log("RESPOSTA JOURNEY -> " + respostaJourneyInfo.contactKey);
+                console.log("RESPOSTA JOURNEY -> " + respostaJourneyInfo.hits);
                 });
             }) 
 
