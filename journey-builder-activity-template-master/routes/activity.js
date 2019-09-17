@@ -140,9 +140,12 @@ exports.execute = function (req, res) {
                 res.on('data', (d) => {
                 chunks.push(d);
                 }).on('end', function() {
-                let data   = Buffer.concat(chunks);
-                respostaAuth = JSON.parse(data);
-                console.log(respostaAuth.access_token);
+                    let data   = Buffer.concat(chunks);
+                    respostaAuth = JSON.parse(data);
+                    callback({
+                        HISTORYJOURNEY();
+                    });
+                   
                 });
             }) 
 
@@ -153,7 +156,19 @@ exports.execute = function (req, res) {
             req2.end();
             /*----------------------ACESSTOKEN-----------------------*/
 //+ decoded.inArguments[0].DefinitionId +
+            
+
+			res.status(200).send('Execute');
+        } else {
+            console.error('inArguments invalid.');
+            return res.status(400).end();
+        }
+    });
+};
+
+function HISTORYJOURNEY(){
             /*----------------------HISTORYJOURNEY-------------------*/
+            
             var body = {
                 "from": 0,
                 "size": 100,
@@ -168,10 +183,10 @@ exports.execute = function (req, res) {
                 }
             };
             var respostaJourneyInfo;
-            data = JSON.stringify(body)
+            var data = JSON.stringify(body)
 
             
-            options = {
+            var options = {
                 hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.rest.marketingcloudapis.com',
                 path: '/interaction/v1/interactions/traceevents/search',
                 method: 'POST',
@@ -200,17 +215,8 @@ exports.execute = function (req, res) {
             })
             req3.write(data);
             req3.end();
-            /*----------------------HISTORYJOURNEY-----------------------*/
-
-			res.status(200).send('Execute');
-        } else {
-            console.error('inArguments invalid.');
-            return res.status(400).end();
-        }
-    });
+        /*----------------------HISTORYJOURNEY-----------------------*/    
 };
-
-
 /*
  * POST Handler for /publish/ route of Activity.
  */
