@@ -180,7 +180,7 @@ function HISTORYJOURNEY(access){
                 }
             };
             var respostaJourneyInfo;
-            data = JSON.stringify(body)
+            var data = JSON.stringify(body)
 
             
             var options = {
