@@ -110,15 +110,17 @@ exports.execute = function (req, res) {
                 }
              }
              var path = endpoint.substring(indexPath, endpoint.length);
+             
              /*ENDPOINT INTERFACE*/
 
             /*----------------------ACESSTOKEN-----------------------*/
+            var respostaAuth;
             var body = {
                 "grant_type": 'client_credentials',
                 "client_id": 'yxvkvkkn3sixeuxv3ha4z94d',
                 "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
-            var respostaAuth;
+            
             var data = JSON.stringify(body)
 
             var options = {
