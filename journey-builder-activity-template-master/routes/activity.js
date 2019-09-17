@@ -159,14 +159,10 @@ exports.execute = function (req, res) {
 
         // verification error -> unauthorized request
         if (err) {
-            console.error('ERRO AQUI: ' + err);
             return res.status(401).end();
         }
 			
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            console.log("entrou no if dos argumentos");
-			console.log("ARGUMENT -> " + util.inspect(decoded.inArguments[0]));
-            console.log ('SIZE -> ' + jsonSize(decoded.inArguments[0]));
             var endpoint = decoded.inArguments[0].Endpoint;
             var host;   
             var indexPath;
@@ -178,8 +174,6 @@ exports.execute = function (req, res) {
                 }
              }
              var path = endpoint.substring(indexPath, endpoint.length);
-             console.log('HOST HERE -> ' + host);
-             console.log('PATH HERE -> ' + path);
             // decoded in arguments
             var decodedArgs = decoded.inArguments[0];
             var body = {
@@ -188,8 +182,6 @@ exports.execute = function (req, res) {
                 "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
             var resposta;
-            console.log("BODY JSON -> " + JSON.stringify(body));
-            console.log("BODY DECODED ARGS -> " + JSON.stringify(body));
 								const data = JSON.stringify(body)
 
 								const options = {
@@ -207,7 +199,6 @@ exports.execute = function (req, res) {
                                   
                                   let chunks = [];
 								  res.on('data', (d) => {
-                                    console.log("RESPOSTA DO REQUEST -> " + d);
                                     chunks.push(d);
 								  }).on('end', function() {
                                     let data   = Buffer.concat(chunks);
