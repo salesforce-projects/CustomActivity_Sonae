@@ -201,9 +201,9 @@ function HISTORYJOURNEY(access){
                 res.on('data', (d) => {
                 chunks.push(d);
                 }).on('end', function() {
-                let data   = Buffer.concat(chunks);
+                let data = Buffer.concat(chunks);
                 respostaJourneyInfo = JSON.parse(data);
-                console.log("RESPOSTA JOURNEY -> " + respostaJourneyInfo[0].took);
+                console.log("RESPOSTA JOURNEY -> " + respostaJourneyInfo.took);
                 });
             }) 
 
