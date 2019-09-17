@@ -143,7 +143,7 @@ exports.execute = function (req, res) {
                     let data   = Buffer.concat(chunks);
                     respostaAuth = JSON.parse(data);
                     callback({
-                        HISTORYJOURNEY();
+                        HISTORYJOURNEY()
                     });
                    
                 });
