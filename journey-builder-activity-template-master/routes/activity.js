@@ -205,12 +205,15 @@ exports.execute = function (req, res) {
 								const req2 = http.request(options, (res) => {
                                   console.log('statusCode: ' + res.statusCode)
                                   
-                                
+                                  let chunks = [];
 								  res.on('data', (d) => {
                                     console.log("RESPOSTA DO REQUEST -> " + d);
-                                    resposta = JSON.parse(d);
-                                    console.log(resposta.accesstoken);
-								  })
+                                    chunks.push(d);
+								  }).on('end', function() {
+                                    let data   = Buffer.concat(chunks);
+                                    let resposta = JSON.parse(data);
+                                    console.log(resposta.access_token);
+                                  });
 								}) 
 
 								req2.on('error', (error) => {
