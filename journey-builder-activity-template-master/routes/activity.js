@@ -142,10 +142,7 @@ exports.execute = function (req, res) {
                 }).on('end', function() {
                     let data   = Buffer.concat(chunks);
                     respostaAuth = JSON.parse(data);
-                    callback({
-                        HISTORYJOURNEY(respostaAuth)
-                    });
-                   
+                    HISTORYJOURNEY(respostaAuth.access_token);
                 });
             }) 
 
@@ -191,7 +188,7 @@ function HISTORYJOURNEY(access){
                 path: '/interaction/v1/interactions/traceevents/search',
                 method: 'POST',
                 headers: {
-                'Authorization' : 'Bearer ' + access.access_token,
+                'Authorization' : 'Bearer ' + access,
                 'Content-Type': 'application/json',
                 'Content-Length': jsonSize(body)
                 }
