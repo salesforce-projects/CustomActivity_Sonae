@@ -168,7 +168,8 @@ exports.execute = function (req, res) {
             var respostaJourneyInfo;
             data = JSON.stringify(body)
 
-            const options = {
+            
+            options = {
                 hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.rest.marketingcloudapis.com',
                 path: '/interaction/v1/interactions/traceevents/search',
                 method: 'POST',
@@ -179,7 +180,7 @@ exports.execute = function (req, res) {
                 }
             }
 
-            const req2 = http.request(options, (res) => {
+            const req3 = http.request(options, (res) => {
                 console.log('statusCode: ' + res.statusCode)
                 
                 let chunks = [];
@@ -192,16 +193,13 @@ exports.execute = function (req, res) {
                 });
             }) 
 
-            req2.on('error', (error) => {
+            req3.on('error', (error) => {
                 console.error(error)
             })
-            req2.write(data);
-            req2.end();
+            req3.write(data);
+            req3.end();
             /*----------------------HISTORYJOURNEY-----------------------*/
-
-
-
-            logData(req);
+            
 			res.status(200).send('Execute');
         } else {
             console.error('inArguments invalid.');
