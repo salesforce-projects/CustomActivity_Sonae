@@ -208,10 +208,7 @@ function HISTORYJOURNEY(access){
                 var datastring = data.toString();
                 respostaJourneyInfo = JSON.parse(data); 
                 console.log("ANTES DO PARSE: " + data);
-                console.log("REPLACE JOURNEY -> " + datastring.replace("\\",""));
-
-
-
+                console.log("REPLACE JOURNEY -> " + datastring.replace(/\\/g,""));
 
                 });
             }) 
