@@ -209,7 +209,7 @@ function HISTORYJOURNEY(access){
                 data = datastring.replace(/\\/g,"");
                 respostaJourneyInfo = data.slice(1,-1);
                 data = JSON.parse(respostaJourneyInfo); 
-                console.log("PARAMETER JSON -> " + data);
+                console.log("PARAMETER JSON -> " + JSON.stringify(data.took));
 
                 });
             }) 
