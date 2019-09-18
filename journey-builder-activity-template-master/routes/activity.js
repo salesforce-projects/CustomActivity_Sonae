@@ -4,6 +4,9 @@ var util = require('util');
 
 var respostaAuth;
 var path;
+var host;
+var decodedArgs;
+var journeyInfoJson;
 // Deps
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
@@ -99,10 +102,9 @@ exports.execute = function (req, res) {
         }
 			
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-
+            decodedArgs = decoded.inArguments[0];
             /*ENDPOINT INTERFACE*/
-            var endpoint = decoded.inArguments[0].Endpoint;
-            var host;   
+            var endpoint = decoded.inArguments[0].Endpoint;   
             var indexPath;
             for (var i = 0; i < endpoint.length; i++) {
                 if (endpoint.substring(i, i+1) == '/'){
@@ -143,7 +145,7 @@ exports.execute = function (req, res) {
                 }).on('end', function() {
                     let data   = Buffer.concat(chunks);
                     respostaAuth = JSON.parse(data);
-                    HISTORYJOURNEY(respostaAuth.access_token);
+                    historyJourney(respostaAuth.access_token);
                 });
             }) 
 
@@ -164,7 +166,7 @@ exports.execute = function (req, res) {
     });
 };
 
-function HISTORYJOURNEY(access){
+function historyJourney(access){
             /*----------------------HISTORYJOURNEY-------------------*/
             
             var body = {
@@ -207,8 +209,8 @@ function HISTORYJOURNEY(access){
                 var datastring = data.toString();
                 data = datastring.replace(/\\/g,"");
                 respostaJourneyInfo = data.slice(1,-1);
-                data = JSON.parse(respostaJourneyInfo); 
-
+                journeyInfoJson = JSON.parse(respostaJourneyInfo); 
+                sendInformation();
                 });
             }) 
 
@@ -218,6 +220,44 @@ function HISTORYJOURNEY(access){
             req3.write(data);
             req3.end();
         /*----------------------HISTORYJOURNEY-----------------------*/    
+};
+
+function sendInformation(){
+
+    /*----------------------SENDINFORMATION-----------------------*/ 
+    var body = {
+        "Email": decodedArgs.Email,
+        "client_id": journeyInfoJson.took
+    };
+
+    const data = JSON.stringify(body)
+    
+    const options = {
+        hostname: host,
+        path: path,
+        method: 'POST',
+        headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': jsonSize(body)
+        }
+    }
+
+    const req2 = http.request(options, (res) => {
+        console.log('statusCode: ${res.statusCode}')
+
+        res.on('data', (d) => {
+        process.stdout.write(d)
+        })
+    }) 
+
+    req2.on('error', (error) => {
+        console.error(error)
+    })
+
+    req2.write(data);
+    req2.end();
+
+    /*----------------------SENDINFORMATION-----------------------*/ 
 };
 /*
  * POST Handler for /publish/ route of Activity.
