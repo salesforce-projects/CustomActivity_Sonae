@@ -231,7 +231,7 @@ function sendInformation(){
     };
 
     const data = JSON.stringify(body)
-    
+
     const options = {
         hostname: host,
         path: path,
@@ -277,4 +277,15 @@ exports.validate = function (req, res) {
     //console.log( req.body );
     logData(req);
 	res.status(200).send('Validate');
+};
+
+
+/*
+ * POST Handler for /listener/ route of Activity.
+ */
+exports.listener = function (req, res) {
+    // Data from the req and put it in an array accessible to the main app.
+    //console.log( req.body );
+    logData(req);
+	res.status(200).send('Listener');
 };
