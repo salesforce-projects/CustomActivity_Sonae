@@ -207,8 +207,9 @@ function HISTORYJOURNEY(access){
                 var data = Buffer.concat(chunks);
                 var datastring = data.toString();
                 data = datastring.replace(/\\/g,"");
-                respostaJourneyInfo = JSON.parse(data); 
-                console.log("PARAMETER JSON -> " + respostaJourneyInfo);
+                respostaJourneyInfo = data.slice(1,-1);
+                data = JSON.parse(respostaJourneyInfo); 
+                console.log("PARAMETER JSON -> " + data);
 
                 });
             }) 
