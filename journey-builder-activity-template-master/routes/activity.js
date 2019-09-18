@@ -3,6 +3,7 @@
 var util = require('util');
 
 var respostaAuth;
+var path;
 // Deps
 const Path = require('path');
 const JWT = require(Path.join(__dirname, '..', 'lib', 'jwtDecoder.js'));
@@ -110,7 +111,7 @@ exports.execute = function (req, res) {
                     break;
                 }
              }
-             var path = endpoint.substring(indexPath, endpoint.length);
+             path = endpoint.substring(indexPath, endpoint.length);
              
              /*ENDPOINT INTERFACE*/
 
@@ -202,14 +203,11 @@ function HISTORYJOURNEY(access){
                 chunks.push(d);
                 }).on('end', function() {
 
-
-
                 var data = Buffer.concat(chunks);
                 var datastring = data.toString();
                 data = datastring.replace(/\\/g,"");
                 respostaJourneyInfo = data.slice(1,-1);
                 data = JSON.parse(respostaJourneyInfo); 
-                console.log("PARAMETER JSON -> " + JSON.stringify(data));
 
                 });
             }) 
