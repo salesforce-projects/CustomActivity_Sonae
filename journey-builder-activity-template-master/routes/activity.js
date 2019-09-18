@@ -206,9 +206,9 @@ function HISTORYJOURNEY(access){
 
                 var data = Buffer.concat(chunks);
                 var datastring = data.toString();
+                data = datastring.replace(/\\/g,"");
                 respostaJourneyInfo = JSON.parse(data); 
-                console.log("ANTES DO PARSE: " + data);
-                console.log("REPLACE JOURNEY -> " + datastring.replace(/\\/g,""));
+                console.log("PARAMETER JSON -> " + respostaJourneyInfo);
 
                 });
             }) 
