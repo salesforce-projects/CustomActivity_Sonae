@@ -91,7 +91,13 @@ define([
         // set by this activity's config.json file.  Any property
         // may be overridden as desired.
         payload.name = name;
-        var arguments;
+        var arguments = "[{";
+
+     /*   camposDE.forEach(function(campo) {
+            console.log("CAMPO DA DATA EXTENSION -> " + campo);
+            arguments = arguments + "\"campo\": '{{Contact.Attribute.De_DEV.Password}}
+            $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
+        });*/
 
         payload['arguments'].execute.inArguments = [{
             "Definition-id": '{{Context.DefinitionId}}',
