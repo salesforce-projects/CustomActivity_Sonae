@@ -58,15 +58,15 @@ define([
         connection.on('requestedSchema', function (data) {
             // save schema
             console.log('*** Schema ***', JSON.stringify(data['schema']));
+            var JsonParsed = JSON.parse(JSON.stringify(data['schema']));
             for (var i = 0, len = JSON.stringify(data['schema']).length; i < len; ++i) {
                 var campos = [];
-                campos.push = JSON.stringify(data['schema'])[i].key.substr(JSON.stringify(data['schema'])[i].key.lastIndexOf(".") + 1);
+                campos.push = JsonParsed[i].key.substr(JsonParsed[i].key.lastIndexOf(".") + 1);
             }
             campos.forEach(function(campo) {
                 console.log("CAMPO DE-> " + campo);
               });
-            var parsedJson = JSON.parse(JSON.stringify(data['schema']));
-            //console.log("KEY NA POSIÇAO 0 -> " + parsedJson[0].key);
+            //console.log("KEY NA POSIÇAO 0 -> " + JsonParsed[0].key);
          });
     }
 		
