@@ -63,12 +63,12 @@ define([
             for (var i = 0, len = data['schema'].length; i < len; ++i) {
                 var campos = [];
                 key = JsonParsed[i].key;
-                console.log("CHAVE -> " + key);
+                console.log("CAMPO -> " + key.substr(key.lastIndexOf(".") + 1));
                 campos.push = key.substr(key.lastIndexOf(".") + 1);
             }
             campos.forEach(function(campo) {
                 console.log("CAMPO DE-> " + campo);
-              });
+            });
             //console.log("KEY NA POSIÇAO 0 -> " + JsonParsed[0].key);
          });
     }
