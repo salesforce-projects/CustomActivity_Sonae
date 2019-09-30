@@ -60,10 +60,9 @@ define([
             console.log('*** Schema ***', JSON.stringify(data['schema']));
             var JsonParsed = data['schema'];
             var key;
+            var campos = [];
             for (var i = 0, len = data['schema'].length; i < len; ++i) {
-                var campos = [];
                 key = JsonParsed[i].key;
-                console.log("CAMPO -> " + key.substr(key.lastIndexOf(".") + 1));
                 campos.push = key.substr(key.lastIndexOf(".") + 1);
             }
             campos.forEach(function(campo) {
