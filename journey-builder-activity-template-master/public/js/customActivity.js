@@ -68,11 +68,12 @@ define([
             }
             camposDE.forEach(function(campo) {
                 console.log("CAMPO DA DATA EXTENSION -> " + campo);
+                $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
             });
             //console.log("KEY NA POSIÇAO 0 -> " + JsonParsed[0].key);
          });
     }
-    
+
     function onGetTokens(tokens) {
         console.log(tokens);
         authTokens = tokens;
