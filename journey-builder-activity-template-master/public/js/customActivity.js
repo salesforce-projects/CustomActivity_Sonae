@@ -58,6 +58,8 @@ define([
         connection.on('requestedSchema', function (data) {
             // save schema
             console.log('*** Schema ***', JSON.stringify(data['schema']));
+            var parsedJson = JSON.parse(JSON.stringify(data['schema']));
+            console.log("KEY NA POSIÇAO 0 -> " + parsedJson[0].key);
          });
     }
 		
