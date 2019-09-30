@@ -66,7 +66,7 @@ define([
                 campos.push = key.substr(key.lastIndexOf(".") + 1);
             }
             campos.forEach(function(campo) {
-                console.log("CAMPO DE-> " + campo);
+                console.log("CAMPO DA DATA EXTENSION -> " + campo);
             });
             //console.log("KEY NA POSIÇAO 0 -> " + JsonParsed[0].key);
          });
