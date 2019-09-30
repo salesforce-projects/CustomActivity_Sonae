@@ -45,7 +45,7 @@ define([
 
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
-				
+				alert('VALUE-> ' + val)
             });
         });
 
@@ -139,9 +139,9 @@ define([
         payload['arguments'].execute.inArguments = [{
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue,
-			"Identifier": "{{Contact.Key}}", 
+			"User": "{{Contact.Key}}", 
 			"Email": '{{InteractionDefaults.Email}}',
-			"Primeiro_Nome": "{{Contact.Attribute.DE_teste.Nome}}"
+			"Password": "{{Contact.Attribute.De_DEV.Password}}"
 		}];
 			
         payload['metaData'].isConfigured = true;

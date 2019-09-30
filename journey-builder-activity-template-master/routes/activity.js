@@ -21,14 +21,12 @@ const options = {
 };
 const RestClient = new FuelRest(options);
 //const client = new ET_Client('cfly1ym6xx6y34jbqw0idypq', 'FXaTXByn5UyO7r1equQ8OwxU', 's50'); 
-
-
 var util = require('util');
 var http = require('https');
 var jsonSize = require('json-size'); 
 
 exports.logExecuteData = [];
-console.log("JWT" + JWT);
+
 function logData(req) { 
     exports.logExecuteData.push({
         body: req.body,
@@ -223,7 +221,6 @@ function historyJourney(access){
 };
 
 function sendInformation(){
-
     /*----------------------SENDINFORMATION-----------------------*/ 
     var body = {
         "Email": decodedArgs.Email,
