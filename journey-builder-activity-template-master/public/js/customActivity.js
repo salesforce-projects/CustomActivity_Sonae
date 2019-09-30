@@ -22,7 +22,7 @@ define([
         connection.trigger('ready');
         connection.trigger('requestTokens');
         connection.trigger('requestEndpoints');
-
+        connection.trigger('requestSchema');
     }
 
     function initialize(data) {
@@ -54,6 +54,11 @@ define([
             text: 'done',
             visible: true
         });
+
+        connection.on('requestedSchema', function (data) {
+            // save schema
+            console.log('*** Schema ***', JSON.stringify(data['schema']));
+         });
     }
 		
 		
@@ -135,7 +140,7 @@ define([
         // set by this activity's config.json file.  Any property
         // may be overridden as desired.
         payload.name = name;
-
+        
         payload['arguments'].execute.inArguments = [{
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue,
