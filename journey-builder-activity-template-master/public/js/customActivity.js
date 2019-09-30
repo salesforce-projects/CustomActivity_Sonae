@@ -70,7 +70,6 @@ define([
                 console.log("CAMPO DA DATA EXTENSION -> " + campo);
                 $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
             });
-            //console.log("KEY NA POSIÇAO 0 -> " + JsonParsed[0].key);
          });
     }
 
@@ -92,7 +91,8 @@ define([
         // set by this activity's config.json file.  Any property
         // may be overridden as desired.
         payload.name = name;
-        
+        var arguments;
+
         payload['arguments'].execute.inArguments = [{
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue,

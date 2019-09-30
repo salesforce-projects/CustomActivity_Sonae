@@ -16,8 +16,7 @@
     },
     "arguments": {
         "execute": {
-           "inArguments":[
-              
+           "inArguments":[        
            ],
           "outArguments": [], 
           "url": "https://custom-activity-sonae.herokuapp.com/journeybuilder/execute",
