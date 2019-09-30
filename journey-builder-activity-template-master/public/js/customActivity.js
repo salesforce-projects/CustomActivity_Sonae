@@ -58,7 +58,7 @@ define([
         connection.on('requestedSchema', function (data) {
             // save schema
             console.log('*** Schema ***', JSON.stringify(data['schema']));
-            var JsonParsed = data['schema'];
+            var JsonParsed = JSON.stringify(data['schema']);
             for (var i = 0, len = JSON.stringify(data['schema']).length; i < len; ++i) {
                 var campos = [];
                 campos.push = JsonParsed[i].key.substr(JsonParsed[i].key.lastIndexOf(".") + 1);
