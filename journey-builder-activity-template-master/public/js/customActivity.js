@@ -60,7 +60,7 @@ define([
             console.log('*** Schema ***', JSON.stringify(data['schema']));
             for (var i = 0, len = JSON.stringify(data['schema']).length; i < len; ++i) {
                 var campos = [];
-                campos.push = objJSON[i].key.substr(objJSON[i].key.lastIndexOf(".") + 1);
+                campos.push = JSON.stringify(data['schema'][i].key.substr(JSON.stringify(data['schema'][i].key.lastIndexOf(".") + 1);
             }
             campos.forEach(function(campo) {
                 console.log("CAMPO DE-> " + campo);
