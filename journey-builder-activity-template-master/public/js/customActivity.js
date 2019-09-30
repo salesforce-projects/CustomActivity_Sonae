@@ -91,7 +91,7 @@ define([
         // set by this activity's config.json file.  Any property
         // may be overridden as desired.
         payload.name = name;
-        var arguments = "[{";
+        //var argumentos = "[{";
 
      /*   camposDE.forEach(function(campo) {
             console.log("CAMPO DA DATA EXTENSION -> " + campo);
