@@ -143,8 +143,7 @@ exports.execute = function (req, res) {
                 }).on('end', function() {
                     let data   = Buffer.concat(chunks);
                     respostaAuth = JSON.parse(data);
-                   // historyJourney(respostaAuth.access_token);
-                   sendInformation();
+                    historyJourney(respostaAuth.access_token);
                 });
             }) 
 
@@ -224,7 +223,8 @@ function historyJourney(access){
 function sendInformation(){
     /*----------------------SENDINFORMATION-----------------------*/ 
     var body = {
-        "Email": decodedArgs.Email
+        "Email": decodedArgs.Email,
+        "client_id": journeyInfoJson.took
     };
 
     const data = JSON.stringify(body)
