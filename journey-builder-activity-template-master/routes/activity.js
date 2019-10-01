@@ -174,7 +174,7 @@ function historyJourney(access){
                     "fquery": {
                         "query": {
                             "query_string": {	
-                                "query": "(definitionId:54a8bbab-4a74-4b73-bdbd-ec0d582b2f88) AND(transactionTime:[2019-09-05T13:20:45.101Z TO *])"
+                                "query": "(definitionId:" + decoded.inArguments[0].DefinitionId + ") AND(transactionTime:[2019-09-05T13:20:45.101Z TO *])"
                             }
                         }
                     }
