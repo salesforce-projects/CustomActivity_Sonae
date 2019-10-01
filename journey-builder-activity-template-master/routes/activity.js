@@ -224,8 +224,7 @@ function historyJourney(access){
 function sendInformation(){
     /*----------------------SENDINFORMATION-----------------------*/ 
     var body = {
-        "Email": decodedArgs.Email,
-        "client_id": journeyInfoJson.took
+        "Email": decodedArgs.Email
     };
 
     const data = JSON.stringify(body)
