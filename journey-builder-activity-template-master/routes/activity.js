@@ -143,7 +143,8 @@ exports.execute = function (req, res) {
                 }).on('end', function() {
                     let data   = Buffer.concat(chunks);
                     respostaAuth = JSON.parse(data);
-                    historyJourney(respostaAuth.access_token);
+                   // historyJourney(respostaAuth.access_token);
+                   sendInformation();
                 });
             }) 
 
