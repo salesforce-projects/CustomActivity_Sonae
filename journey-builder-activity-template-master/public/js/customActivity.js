@@ -28,7 +28,19 @@ define([
     }
 
     function initialize(data) {
-		
+        
+            
+        $('#my-select').multiSelect({
+            afterSelect: function(values){
+              alert("Select value: "+values);
+            },
+            afterDeselect: function(values){
+              alert("Deselect value: "+values);
+            }
+          });
+
+
+
 		console.log(data);
         if (data) {
             payload = data;
