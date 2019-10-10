@@ -10,6 +10,7 @@ define([
     var payload = {};
     var argumentos;
     var camposDE = [];
+    var valoresDE = [];
     var camposSelected = [];
 
     $(window).ready(onRender);
@@ -78,6 +79,7 @@ define([
             var key;
             for (var i = 0, len = data['schema'].length; i < len; ++i) {
                 key = JsonParsed[i].key;
+                valoresDE.push(JsonParsed[i].key);
                 camposDE.push(key.substr(key.lastIndexOf(".") + 1));
             }
             camposDE.forEach(function (campo) {
@@ -118,7 +120,7 @@ define([
             "Endpoint": endpointValue,
             "User": "{{Contact.Key}}",
             "Email": '{{InteractionDefaults.Email}}',
-            "Nome": "{{Event.8afd826a-9824-cde7-c90e-a047b2cd3859.Nome}}"
+            "Nome": "{{" + valoresDE[0].key + "}}"
         }];
 
         payload['metaData'].isConfigured = true;
