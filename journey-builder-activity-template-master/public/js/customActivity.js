@@ -118,9 +118,9 @@ define([
             "Endpoint": endpointValue,
             "User": "{{Contact.Key}}",
             "Email": '{{InteractionDefaults.Email}}',
-            "Nome": '{{Event."DEAudience-61607d69-bc0f-bf1d-8e0e-37940ae92350"."Nome"}}'
+            "Nome": '{{Event."DEAudience-86db892c-b9a3-134d-986c-0ceb8808da8b"."Nome"}}'
         }];
-
+//DEAudience-86db892c-b9a3-134d-986c-0ceb8808da8b
         payload['metaData'].isConfigured = true;
 
         connection.trigger('updateActivity', payload);
