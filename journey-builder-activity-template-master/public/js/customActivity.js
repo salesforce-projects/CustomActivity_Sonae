@@ -120,7 +120,7 @@ define([
             "Endpoint": endpointValue,
             "User": "{{Contact.Key}}",
             "Email": '{{InteractionDefaults.Email}}',
-            "Password": "{{Contact.Attribute.DEAudience-571e0839-1180-769a-509f-0c1655f7a82c.Password}}"
+            "Nome": "{{Contact.Attribute.DEAudience-8e5d74c5-9549-2c66-554d-5073a2c25b60.Nome}}"
         }];
 
         payload['metaData'].isConfigured = true;
