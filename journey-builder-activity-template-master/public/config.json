@@ -1,5 +1,5 @@
 { 
-	"key": "18643827-bf63-4382-b2f4-ee4ecf1139ff",
+	"key": "78bdafc4-c22f-4d29-99c5-8e229a96b109",
   
     "workflowApiVersion": "1.1",
     "metaData": {
@@ -29,7 +29,7 @@
         }
     },
     "configurationArguments": {
-      "applicationExtensionKey": "18643827-bf63-4382-b2f4-ee4ecf1139ff",
+      "applicationExtensionKey": "78bdafc4-c22f-4d29-99c5-8e229a96b109",
 	  "defaults": {
 		"activity": "0"
 	  },
