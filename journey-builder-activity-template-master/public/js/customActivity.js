@@ -84,7 +84,7 @@ define([
                 camposDE.push(key.substr(key.lastIndexOf(".") + 1));
             }
             console.log('VALORES Da DE -> ' + valoresDE);
-            console.log("VALOR DA PRIMEIRA POSIÇAO -> " + valoresDE[0].key);
+            console.log("VALOR DA PRIMEIRA POSIÇAO -> " + valoresDE[0]);
             camposDE.forEach(function (campo) {
                 console.log("CAMPO DA DATA EXTENSION -> " + campo);
                 $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
@@ -117,13 +117,12 @@ define([
                arguments = arguments + "\"campo\": '{{Contact.Attribute.De_DEV.Password}}
                $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
            });*/
-        console.log(valoresDE[0].key);
         payload['arguments'].execute.inArguments = [{
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue,
             "User": "{{Contact.Key}}",
             "Email": '{{InteractionDefaults.Email}}',
-            "Nome": "{{" + valoresDE[0].key + "}}"
+            "Nome": "{{" + valoresDE[0] + "}}"
         }];
 
         payload['metaData'].isConfigured = true;
