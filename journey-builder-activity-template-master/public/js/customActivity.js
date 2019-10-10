@@ -37,7 +37,7 @@ define([
                 alert(camposSelected)
             },
             afterDeselect: function (values) {
-                var index = array.indexOf(values);
+                var index = camposSelected.indexOf(values);
                 camposSelected.splice(index, 1);
                 alert(camposSelected)
             }
