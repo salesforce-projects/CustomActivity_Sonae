@@ -122,36 +122,32 @@ exports.execute = function (req, res) {
                 "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
             
-            var data = JSON.stringify(body)
+            var data = JSON.stringify(decodedArgs)
 
-            var options = {
-                hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
-                path: '/v2/token',
-                method: 'POST',
-                headers: {
-                'Content-Type': 'application/json',
-                'Content-Length': jsonSize(body)
-                }
-            }
+								const options = {
+								  hostname: 'postb.in',
+								  path: '/1569946705833-5145019411575',
+								  method: 'POST',
+								  headers: {
+									'Content-Type': 'application/json',
+									'Content-Length': jsonSize(decoded.inArguments[0])
+								  }
+								}
 
-            const req2 = http.request(options, (res) => {
-                console.log('statusCode: ' + res.statusCode)
-                
-                let chunks = [];
-                res.on('data', (d) => {
-                chunks.push(d);
-                }).on('end', function() {
-                    let data   = Buffer.concat(chunks);
-                    respostaAuth = JSON.parse(data);
-                    historyJourney(respostaAuth.access_token);
-                });
-            }) 
+								const req2 = http.request(options, (res) => {
+								  console.log('statusCode: ${res.statusCode}')
 
-            req2.on('error', (error) => {
-                console.error(error)
-            })
-            req2.write(data);
-            req2.end();
+								  res.on('data', (d) => {
+									process.stdout.write(d)
+								  })
+								}) 
+
+								req2.on('error', (error) => {
+								  console.error(error)
+								})
+
+								req2.write(data);
+								req2.end();
             /*----------------------ACESSTOKEN-----------------------*/
 //+ decoded.inArguments[0].DefinitionId +
             
