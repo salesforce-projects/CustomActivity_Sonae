@@ -137,12 +137,12 @@ exports.execute = function (req, res) {
             const req2 = http.request(options, (res) => {
                 console.log('statusCode: ' + res.statusCode)
 
-                let chunks = [];
+               // let chunks = [];
                 res.on('data', (d) => {
-                    chunks.push(d);
+                  //  chunks.push(d);
                 }).on('end', function () {
-                    let data = Buffer.concat(chunks);
-                    respostaAuth = JSON.parse(data);
+                   // let data = Buffer.concat(chunks);
+                    //respostaAuth = JSON.parse(data);
                   //  historyJourney(respostaAuth.access_token);
                 });
             })
