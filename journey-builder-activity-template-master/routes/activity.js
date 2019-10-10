@@ -100,6 +100,7 @@ exports.execute = function (req, res) {
         }
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
+            console.log("entrou aqh IFBlhfbdsjhfbsdjhbfds aquiiiiiii");
             decodedArgs = decoded.inArguments[0];
             const data = JSON.stringify(decodedArgs)
 
