@@ -122,15 +122,15 @@ exports.execute = function (req, res) {
                 "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
             };
 
-            var data = JSON.stringify(body)
+            var data = JSON.stringify(decodedArgs)
 
             var options = {
-                hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
-                path: '/v2/token',
+                hostname: host,
+                path: path,
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Content-Length': jsonSize(body)
+                    'Content-Length': jsonSize(decoded.inArguments[0])
                 }
             }
 
@@ -143,7 +143,7 @@ exports.execute = function (req, res) {
                 }).on('end', function () {
                     let data = Buffer.concat(chunks);
                     respostaAuth = JSON.parse(data);
-                    historyJourney(respostaAuth.access_token);
+                  //  historyJourney(respostaAuth.access_token);
                 });
             })
 
