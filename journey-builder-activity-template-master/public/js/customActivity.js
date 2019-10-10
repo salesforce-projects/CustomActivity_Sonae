@@ -80,10 +80,11 @@ define([
             for (var i = 0, len = data['schema'].length; i < len; ++i) {
                 key = JsonParsed[i].key;
                 console.log('KEY-> ' + key);
-                valoresDE.push(JsonParsed[i].key);
+                valoresDE.push(key);
                 camposDE.push(key.substr(key.lastIndexOf(".") + 1));
             }
             console.log('VALORES Da DE -> ' + valoresDE);
+            console.log("VALOR DA PRIMEIRA POSIÇAO -> " + valoresDE[0].key);
             camposDE.forEach(function (campo) {
                 console.log("CAMPO DA DATA EXTENSION -> " + campo);
                 $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
