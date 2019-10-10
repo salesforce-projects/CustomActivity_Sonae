@@ -118,7 +118,7 @@ define([
             "Endpoint": endpointValue,
             "User": "{{Contact.Key}}",
             "Email": '{{InteractionDefaults.Email}}',
-            "Nome": "{{Event.a204608-aec1-45d1-a689-ab1281e79904.Nome}}"
+            "Nome": "{{Event.fc3cffad-e4e9-4dc6-a385-6ccc8125a277.Nome}}"
         }];
 
         payload['metaData'].isConfigured = true;
