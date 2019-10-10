@@ -33,13 +33,11 @@ define([
 
         $('#my-select').multiSelect({
             afterSelect: function (values) {
-                camposSelected.push(values);
-                alert(camposSelected)
+                camposSelected.push(values)
             },
             afterDeselect: function (values) {
                 var index = camposSelected.indexOf(values);
-                camposSelected.splice(index, 1);
-                alert(camposSelected)
+                camposSelected.splice(index, 1)
             }
         });
 

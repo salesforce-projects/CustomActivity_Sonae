@@ -100,32 +100,56 @@ exports.execute = function (req, res) {
         }
 
         if (decoded && decoded.inArguments && decoded.inArguments.length > 0) {
-            console.log("entrou aqh IFBlhfbdsjhfbsdjhbfds aquiiiiiii");
             decodedArgs = decoded.inArguments[0];
-            const data = JSON.stringify(decodedArgs)
+            /*ENDPOINT INTERFACE*/
+            var endpoint = decoded.inArguments[0].Endpoint;
+            var indexPath;
+            for (var i = 0; i < endpoint.length; i++) {
+                if (endpoint.substring(i, i + 1) == '/') {
+                    host = endpoint.substring(0, i);
+                    indexPath = i;
+                    break;
+                }
+            }
+            path = endpoint.substring(indexPath, endpoint.length);
 
-            const options = {
-                hostname: 'postb.in',
-                path: '/1570717763037-6980059756897', 
+            /*ENDPOINT INTERFACE*/
+
+            /*----------------------ACESSTOKEN-----------------------*/
+            var body = {
+                "grant_type": 'client_credentials',
+                "client_id": 'yxvkvkkn3sixeuxv3ha4z94d',
+                "client_secret": '2EG7sOFjI5wrevOHMOE3ZEWL'
+            };
+
+            var data = JSON.stringify(body)
+
+            var options = {
+                hostname: 'mcdgsnqlh4ybg-9cyt895ypwkxh0.auth.marketingcloudapis.com',
+                path: '/v2/token',
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Content-Length': jsonSize(decoded.inArguments[0])
+                    'Content-Length': jsonSize(body)
                 }
             }
 
             const req2 = http.request(options, (res) => {
-                console.log('statusCode: ${res.statusCode}')
+                console.log('statusCode: ' + res.statusCode)
 
+                let chunks = [];
                 res.on('data', (d) => {
-                    process.stdout.write(d)
-                })
+                    chunks.push(d);
+                }).on('end', function () {
+                    let data = Buffer.concat(chunks);
+                    respostaAuth = JSON.parse(data);
+                    historyJourney(respostaAuth.access_token);
+                });
             })
 
             req2.on('error', (error) => {
                 console.error(error)
             })
-
             req2.write(data);
             req2.end();
             /*----------------------ACESSTOKEN-----------------------*/
