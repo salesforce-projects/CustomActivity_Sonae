@@ -114,7 +114,7 @@ define([
                arguments = arguments + "\"campo\": '{{Contact.Attribute.De_DEV.Password}}
                $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
            });*/
-
+        console.log(valoresDE[0].key);
         payload['arguments'].execute.inArguments = [{
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue,
