@@ -34,12 +34,12 @@ define([
         $('#my-select').multiSelect({
             afterSelect: function (values) {
                 camposSelected.push(values);
-                alert(camposSelected);
+                alert(camposSelected)
             },
             afterDeselect: function (values) {
                 var index = array.indexOf(values);
                 camposSelected.splice(index, 1);
-                alert(camposSelected);
+                alert(camposSelected)
             }
         });
 
