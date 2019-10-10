@@ -18,7 +18,7 @@ define([
     connection.on('requestedEndpoints', onGetEndpoints);
 
     connection.on('clickedNext', save);
-   
+
     function onRender() {
         // JB will respond the first time 'ready' is called with 'initActivity'
         connection.trigger('ready');
@@ -28,24 +28,24 @@ define([
     }
 
     function initialize(data) {
-        
-            
+
+
         $('#my-select').multiSelect({
-            afterSelect: function(values){
-              alert("Select value: "+values);
+            afterSelect: function (values) {
+                alert("Select value: " + values);
             },
-            afterDeselect: function(values){
-              alert("Deselect value: "+values);
+            afterDeselect: function (values) {
+                alert("Deselect value: " + values);
             }
-          });
+        });
 
 
 
-		console.log(data);
+        console.log(data);
         if (data) {
             payload = data;
         }
-        
+
         var hasInArguments = Boolean(
             payload['arguments'] &&
             payload['arguments'].execute &&
@@ -59,7 +59,7 @@ define([
 
         $.each(inArguments, function (index, inArgument) {
             $.each(inArgument, function (key, val) {
-				alert('VALUE-> ' + val)
+                alert('VALUE-> ' + val)
             });
         });
 
@@ -78,11 +78,11 @@ define([
                 key = JsonParsed[i].key;
                 camposDE.push(key.substr(key.lastIndexOf(".") + 1));
             }
-            camposDE.forEach(function(campo) {
+            camposDE.forEach(function (campo) {
                 console.log("CAMPO DA DATA EXTENSION -> " + campo);
                 $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
             });
-         });
+        });
     }
 
     function onGetTokens(tokens) {
@@ -93,11 +93,11 @@ define([
     function onGetEndpoints(endpoints) {
         console.log(endpoints);
     }
-	
+
 
     function save() {
         var name = 'API Exemplo Sonae';
-        var endpointValue = $('#endpoint-url').val(); 
+        var endpointValue = $('#endpoint-url').val();
         // 'payload' is initialized on 'initActivity' above.
         // Journey Builder sends an initial payload with defaults
         // set by this activity's config.json file.  Any property
@@ -105,20 +105,20 @@ define([
         payload.name = name;
         //var argumentos = "[{";
 
-     /*   camposDE.forEach(function(campo) {
-            console.log("CAMPO DA DATA EXTENSION -> " + campo);
-            arguments = arguments + "\"campo\": '{{Contact.Attribute.De_DEV.Password}}
-            $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
-        });*/
+        /*   camposDE.forEach(function(campo) {
+               console.log("CAMPO DA DATA EXTENSION -> " + campo);
+               arguments = arguments + "\"campo\": '{{Contact.Attribute.De_DEV.Password}}
+               $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
+           });*/
 
         payload['arguments'].execute.inArguments = [{
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue,
-			"User": "{{Contact.Key}}", 
-			"Email": '{{InteractionDefaults.Email}}',
-			"Password": "{{Contact.Attribute.DEAudience-571e0839-1180-769a-509f-0c1655f7a82c.Password}}"
-		}];
-			
+            "User": "{{Contact.Key}}",
+            "Email": '{{InteractionDefaults.Email}}',
+            "Password": "{{Contact.Attribute.DEAudience-571e0839-1180-769a-509f-0c1655f7a82c.Password}}"
+        }];
+
         payload['metaData'].isConfigured = true;
 
         connection.trigger('updateActivity', payload);
