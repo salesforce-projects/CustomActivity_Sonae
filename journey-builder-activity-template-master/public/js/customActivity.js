@@ -10,6 +10,7 @@ define([
     var payload = {};
     var argumentos;
     var camposDE = [];
+    var camposSelected = [];
 
     $(window).ready(onRender);
 
@@ -32,10 +33,13 @@ define([
 
         $('#my-select').multiSelect({
             afterSelect: function (values) {
-                alert("Select value: " + values);
+                camposSelected.push(values);
+                alert(camposSelected);
             },
             afterDeselect: function (values) {
-                alert("Deselect value: " + values);
+                var index = array.indexOf(values);
+                camposSelected.splice(index, 1);
+                alert(camposSelected);
             }
         });
 
