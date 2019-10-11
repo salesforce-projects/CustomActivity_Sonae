@@ -10,7 +10,7 @@ define([
     var payload = {};
     var argumentos;
     var camposDE = [];
-    var valoresDE = [];
+    var valoresDE = new Map();
     var camposSelected = [];
 
     $(window).ready(onRender);
@@ -80,14 +80,14 @@ define([
             for (var i = 0, len = data['schema'].length; i < len; ++i) {
                 key = JsonParsed[i].key;
                 console.log('KEY-> ' + key);
-                valoresDE.push(key);
+                valoresDE.set(key.substr(key.lastIndexOf(".") + 1), key);
                 camposDE.push(key.substr(key.lastIndexOf(".") + 1));
             }
             console.log('VALORES Da DE -> ' + valoresDE);
-            console.log("VALOR DA PRIMEIRA POSIÇAO -> " + valoresDE[0]);
             camposDE.forEach(function (campo) {
                 console.log("CAMPO DA DATA EXTENSION -> " + campo);
                 $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
+                
             });
         });
     }
@@ -117,12 +117,14 @@ define([
                arguments = arguments + "\"campo\": '{{Contact.Attribute.De_DEV.Password}}
                $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
            });*/
+
+           //ITERAR CADA CAMPO DE CAMPOS SELECTED E IR BUSCAR A KEY DO MAPA ATRAVES DESSES CAMPOS SELECTED
         payload['arguments'].execute.inArguments = [{
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue,
             "User": "{{Contact.Key}}",
             "Email": '{{InteractionDefaults.Email}}',
-            "Nome": "{{" + valoresDE[0] + "}}"
+            "Nome": "{{" + valoresDE.get("Nome") + "}}"
         }];
 
         payload['metaData'].isConfigured = true;
