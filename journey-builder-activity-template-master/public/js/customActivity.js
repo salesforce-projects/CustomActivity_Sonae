@@ -83,7 +83,6 @@ define([
                 valoresDE.set(key.substr(key.lastIndexOf(".") + 1), key);
                 camposDE.push(key.substr(key.lastIndexOf(".") + 1));
             }
-            console.log('VALORES Da DE -> ' + valoresDE);
             camposDE.forEach(function (campo) {
                 console.log("CAMPO DA DATA EXTENSION -> " + campo);
                 $('#my-select').multiSelect('addOption', { value: campo, text: campo, index: 0, nested: 'optgroup_label' });
@@ -119,6 +118,7 @@ define([
             "Endpoint": endpointValue
         }];
         camposSelected  .forEach(function (campo) {
+            console.log("GET DO MAPA -> " + valoresDE.get(campo));
             console.log("VALORES DE -> " + valoresDE);
             console.log("CAMPO -> " + campo);
             jsonObject[0][campo] = "{{"+valoresDE.get(campo)+"}}";
