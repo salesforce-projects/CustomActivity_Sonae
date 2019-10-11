@@ -117,7 +117,8 @@ define([
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue
         }];
-        console.log(valoresDE);
+        console.log(camposDE);
+        console.log(camposSelected);
         
         camposDE.forEach(function (campo) {
             console.log("GET DO MAPA -> " + valoresDE.get(campo));
