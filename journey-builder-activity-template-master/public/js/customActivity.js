@@ -118,7 +118,8 @@ define([
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue
         }];
-        camposSelected.forEach(function (campo) {
+        camposSelected  .forEach(function (campo) {
+            console.log(valoresDE.get(campo));
             jsonObject[0][campo] = "{{"+valoresDE.get(campo)+"}}";
         });
         payload['arguments'].execute.inArguments = jsonObject;
