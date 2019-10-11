@@ -34,6 +34,7 @@ define([
 
         $('#my-select').multiSelect({
             afterSelect: function (values) {
+                console.log(values);
                 camposSelected.push(values)
             },
             afterDeselect: function (values) {
