@@ -119,7 +119,7 @@ define([
             "Endpoint": endpointValue
         }];
         camposDE.forEach(function (campo) {
-            jsonObject[0][campo] = valoresDE.get(campo);
+            jsonObject[0][campo] = "{{"+valoresDE.get(campo)+"}}";
         });
         payload['arguments'].execute.inArguments = jsonObject;
 
