@@ -111,19 +111,16 @@ define([
         // may be overridden as desired.
         payload.name = name;
         //var argumentos = "[{";
-        /*camposDE.forEach(function(campo) {
-         valoresDE.get(campo)
-        });*/
+
 
         //ITERAR CADA CAMPO DE CAMPOS SELECTED E IR BUSCAR A KEY DO MAPA ATRAVES DESSES CAMPOS SELECTED
         var jsonObject = [{
             "Definition-id": '{{Context.DefinitionId}}',
-            "Endpoint": endpointValue,
-            "User": "{{Contact.Key}}",
-            "Email": '{{InteractionDefaults.Email}}',
-            "Nome": "{{" + valoresDE.get("Nome") + "}}"
+            "Endpoint": endpointValue
         }];
-        jsonObject["NovoEmail"] = valoresDE.get("Email");
+        camposDE.forEach(function (campo) {
+            jsonObject[0][campo] = valoresDE.get(campo);
+        });
         payload['arguments'].execute.inArguments = jsonObject;
 
         payload['metaData'].isConfigured = true;
