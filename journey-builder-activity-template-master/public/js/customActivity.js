@@ -123,6 +123,7 @@ define([
             "Email": '{{InteractionDefaults.Email}}',
             "Nome": "{{" + valoresDE.get("Nome") + "}}"
         }];
+        jsonObject["NovoEmail"] = valoresDE.get("Email");
         payload['arguments'].execute.inArguments = jsonObject;
 
         payload['metaData'].isConfigured = true;
