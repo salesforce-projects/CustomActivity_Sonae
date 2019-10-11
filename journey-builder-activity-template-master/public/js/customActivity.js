@@ -34,12 +34,13 @@ define([
 
         $('#my-select').multiSelect({
             afterSelect: function (values) {
-                console.log(values);
-                camposSelected.push(values)
+                camposSelected.push(values[0])
             },
             afterDeselect: function (values) {
-                var index = camposSelected.indexOf(values);
-                camposSelected.splice(index, 1)
+                console.log(camposSelected);
+                var index = camposSelected.indexOf(values[0]);
+                camposSelected.splice(index, 1);
+                console.log(camposSelected);
             }
         });
 
@@ -121,7 +122,7 @@ define([
         console.log(camposDE);
         console.log(camposSelected);
         
-        camposDE.forEach(function (campo) {
+        camposSelected.forEach(function (campo) {
             console.log("GET DO MAPA -> " + valoresDE.get(campo));
             console.log("VALORES DE -> " + valoresDE);
             console.log("CAMPO -> " + campo);
