@@ -117,9 +117,10 @@ define([
             "Definition-id": '{{Context.DefinitionId}}',
             "Endpoint": endpointValue
         }];
-        camposSelected  .forEach(function (campo) {
+        console.log(valoresDE);
+        
+        camposSelected.forEach(function (campo) {
             console.log("GET DO MAPA -> " + valoresDE.get(campo));
-            console.log("VALORES DE -> " + valoresDE);
             console.log("CAMPO -> " + campo);
             jsonObject[0][campo] = "{{"+valoresDE.get(campo)+"}}";
         });
